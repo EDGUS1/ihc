@@ -1,4 +1,4 @@
-footer{
+#footer{
     height: 50px;
     background: #000;
     color: white;
@@ -7,7 +7,7 @@ footer{
     align-items: center;
     /* margin-top: 50px; */
 }
-footer div{
+#footer div{
     display: inline;
     letter-spacing: 1.5px;
 }

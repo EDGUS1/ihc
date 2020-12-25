@@ -87,6 +87,12 @@ module.exports = app => {
     app.get('/verificar.css', (req, res) => {
         res.sendFile(path.join(__dirname, '../public/verificar.css'))
     })
+    app.get('/login.css', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/login.css'))
+    })
+    app.get('/seleccion.css', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/seleccion.css'))
+    })
     app.get('/index.js', (req, res) => {
         res.sendFile(path.join(__dirname, '../public/index.js'))
     })
