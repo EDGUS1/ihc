@@ -3,9 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sistema de vacunacion</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="footer.css">
 </head>
 <body>
-    <h1>Tabla de Frank</h1>
+    
+    <main>
+        
+        <h1>Administracion Nombre_usuario</h1>
+        <div class="tablas">
+            <section>
+                <table id="tabla">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Contact</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                            <td>Germany</td>
+                        </tr>
+                        <tr>
+                            <td>Centro comercial Moctezuma</td>
+                            <td>Francisco Chang</td>
+                            <td>Mexico</td>
+                        </tr>
+                        <tr>
+                            <td>Ernst Handel</td>
+                            <td>Roland Mendel</td>
+                            <td>Austria</td>
+                        </tr>
+                        <tr>
+                            <td>Island Trading</td>
+                            <td>Helen Bennett</td>
+                            <td>UK</td>
+                        </tr>
+                        <tr>
+                            <td>Laughing Bacchus Winecellars</td>
+                            <td>Yoshi Tannamuri</td>
+                            <td>Canada</td>
+                        </tr>
+                        <tr>
+                            <td>Magazzini Alimentari Riuniti</td>
+                            <td>Giovanni Rovelli</td>
+                            <td>Italy</td>
+                        </tr>
+                    </tbody>    
+                </table>
+            </section>
+            <div class="flechas">
+                <i id="btn-izq" class="fas fa-long-arrow-alt-right"></i>
+                <i id="btn-der" class="fas fa-long-arrow-alt-left"></i>
+            </div>
+            <section>
+                <table id="tabla2">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Contact</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                            <td>Germany</td>
+                        </tr>
+                        <tr>
+                            <td>Centro comercial Moctezuma</td>
+                            <td>Francisco Chang</td>
+                            <td>Mexico</td>
+                        </tr>
+                        <tr>
+                            <td>Ernst Handel</td>
+                            <td>Roland Mendel</td>
+                            <td>Austria</td>
+                        </tr>
+                    </tbody>    
+                </table>
+            </section>
+        </div>
+        <div class="edad">
+            <span>Edad minima</span>
+            <input type="range" max="100" min="0" list="tickmarks" value="70">
+            <!-- <datalist id="tickmarks">
+                <option value="0" label="0%">
+                <option value="10">
+                <option value="20">
+                <option value="30">
+                <option value="40">
+                <option value="50" label="50%">
+                <option value="60">
+                <option value="70">
+                <option value="80">
+                <option value="90">
+                <option value="100" label="100%">
+              </datalist> -->
+        </div>
+        <button>Guardar</button>
+    </main>
+    
+
+    <footer><div>Copyright 2020 AmezagaCode | Todos los derechos reservados</div></footer>
+
+
+    <script>
+    let tb = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+    let tb2 = document.getElementById('tabla2').getElementsByTagName('tbody')[0]
+    for (let i = 0; i < tb.rows.length; i++){
+        tb.rows[i].onclick = function() {
+            TableRowClick(this, i);
+        }
+    }   
+    let a, b, c, del;               
+    function TableRowClick (x, it){
+        a = x.cells[0].innerHTML;
+        b = x.cells[1].innerHTML;
+        c = x.cells[2].innerHTML;
+        del = it;
+    //alert(msg);
+    }
+
+    document.getElementById('btn-izq').addEventListener("click", function(){
+        let newrow = document.getElementById('tabla2').getElementsByTagName('tbody')[0].insertRow();
+        document.getElementById('tabla').getElementsByTagName('tbody')[0].deleteRow(del);
+    
+    /* newrow.innerHTML = '<tr><td>nueva compañia</td><td>nuevo contacto</td><td>nuevo pais</td>tr>'; */
+        newrow.innerHTML = `<tr><td>${a}</td><td>${b}</td><td>${c}</td></tr>`;
+   /*  newrow.onclick = function(){
+        TableRowClick(this);
+    }; */
+        tb = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+        tb2 = document.getElementById('tabla2').getElementsByTagName('tbody')[0];
+    });
+
+    for (let i = 0; i < tb2.rows.length; i++){
+        tb2.rows[i].onclick = function() {
+            TableRowClick2(this, i);
+        }
+    }
+    let a1, b1, c1, del1;
+    function TableRowClick2(x, ii){
+        a1 = x.cells[0].innerHTML;
+        b1 = x.cells[1].innerHTML;
+        c1 = x.cells[2].innerHTML;
+        del1 = ii;
+    //alert(msg);
+    }    
+    document.getElementById('btn-der').addEventListener("click", function(){
+        let newrow2 = document.getElementById('tabla').getElementsByTagName('tbody')[0].insertRow();
+        document.getElementById('tabla2').getElementsByTagName('tbody')[0].deleteRow(del1);
+        /* newrow.innerHTML = '<tr><td>nueva compañia</td><td>nuevo contacto</td><td>nuevo pais</td>tr>'; */
+        newrow2.innerHTML = `<tr><td>${a1}</td><td>${b1}</td><td>${c1}</td></tr>`;
+        /* newrow2.onclick = function(){
+            TableRowClick2(this);
+        }; */
+        tb = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+        tb2 = document.getElementById('tabla2').getElementsByTagName('tbody')[0];
+    })
+    </script>
 </body>
 </html>
