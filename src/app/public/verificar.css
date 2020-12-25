@@ -1,0 +1,86 @@
+/* @import '//codepen.io/chrisdothtml/pen/ojLzJK.css'; */
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+h1{
+    background: tomato;
+    height: 450px;
+    padding: 150px 0;
+    margin-bottom: 50px;
+}
+
+
+footer{
+    height: 50px;
+    background: #000;
+    color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    position: relative;
+    bottom: 0%;
+    
+}
+footer div{
+    display: inline;
+    letter-spacing: 1.5px;
+}
+p{
+    width: 70%;
+    margin: auto;
+}
+
+#form-verificar{
+    
+    /* background-color: #d45421; */
+    background-color: #fafafa;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    margin-top: 10%;
+    /* margin-bottom: 20%; */
+    box-shadow: 7px 13px 37px gray;
+    border-radius: 5%;
+    font-size: 21px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-between;
+}
+#form-verificar div{
+  margin: 0px  auto;
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: center; */
+}
+#btn-verificar{
+    /* margin-left: 150px; */
+    text-align: center;
+    padding: 15px;
+    font-size: 50x;
+    border-radius: 20px;
+    
+}
+/* #btn-verificar:hover{
+    background-color: rgb(255, 40, 2);
+} */
+ #form-verificar h2{
+  text-align: center;
+  font-weight: 500px;
+  font-size: 27px;
+  margin-top: 33px;
+}
+/*#checkbox{
+  width: 25px;
+  height: 25px;
+  position: relative;
+  left: 1px;
+}
+#dni{
+  margin-left: 39px;
+} */

@@ -467,12 +467,12 @@ footer div{
             <nav class = "navbar-menu">
                 <ul id="navitem-elemento">
                     <li><a id = "inicio" href="/Home">Inicio</a></li>
-                    <li><a href="/Verificar">Verificar</a></li>
+                    <li><a href="../verificar">Verificar</a></li>
                     <li><a href="#">Acerca de nosotros</a></li>
                 </ul>
             </nav>
             <ul class="link-login-acceder">
-                <li><a href="/Login"><i class="fas fa-sign-in-alt"></i>Acceder</a></li>
+                <li><a href="../Login"><i class="fas fa-sign-in-alt"></i>Acceder</a></li>
             </ul>
             <div class="lines">
                 <i class="fas fa-bars"></i>
@@ -490,7 +490,7 @@ footer div{
           <div class="col-xs-12">
             <p id="parrafo">Verifica si eres beneficiaro para la vacunacion</p>
             <div class="more-link">
-                <a target="_blank" href="/Verificar"> Verificar </a>
+                <a href="../verificar"> Verificar </a>
             </div>
           </div>
           
@@ -532,17 +532,18 @@ footer div{
                   <th class="th-sm">Hospital</th>
                   <th class="th-sm">Direccion</th>
                   <th class="th-sm">Telefono</th>
-                  <!-- <th class="th-sm">Mapa</th> -->
+                  <th class="th-sm">Mapa</th>
                 </tr>
             </thead>
             <tbody>
 
               <% for (let i = 0; i < resultado.length; i++){ %>
                 <tr>
-                    <td><%= resultado[i].nombre_hospital %></td>
-                    <td><%= resultado[i].direccion_hospital %></td>
-                    <td><%= resultado[i].telefono_paciente %></td>
-                    <!-- <td><iframe src= <%= resultado[i].mapa %> width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></td> -->
+                  <td><%= resultado[i].nombre_hospital %></td>
+                  <td><%= resultado[i].direccion_hospital %></td>
+                  <td><%= resultado[i].telefono_paciente %></td>
+                  <td>
+                    <iframe src= <%= resultado[i].mapa %> width="600" height="450" frameborder="0" style="border:0;"allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></td>
                 </tr>
               <% } %>
             </tbody>
