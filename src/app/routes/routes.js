@@ -1,5 +1,8 @@
 const dbConnection = require('../../config/dbConnection');
+const path = require('path');
 
+
+//npm run dev
 module.exports = app => {
 
     const connection = dbConnection();
@@ -8,7 +11,7 @@ module.exports = app => {
         
         connection.query('SELECT * FROM HOSPITAL', (err, result) => {
             /* console.log('Datos ', result); */
-            res.render('home/home',{
+            res.render('home',{
                 resultado: result
             });
         });
@@ -18,7 +21,7 @@ module.exports = app => {
         
         connection.query('SELECT * FROM PACIENTE', (err, result) => {
             /* console.log('Datos ', result); */
-            res.render('verificar/verificar',{
+            res.render('verificar',{
                 resultado: result
             });
         });
@@ -28,7 +31,7 @@ module.exports = app => {
         
         connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
             /* console.log('Datos ', result); */
-            res.render('login/login',{
+            res.render('login',{
                 resultado: result
             });
         });
@@ -38,7 +41,7 @@ module.exports = app => {
         
         connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
             /* console.log('Datos ', result); */
-            res.render('seleccionado/seleccionado',{
+            res.render('seleccionado',{
                 resultado: result
             });
         }); 
@@ -46,7 +49,7 @@ module.exports = app => {
 
 
     app.post('/home', (req, res) => {
-        const {id, title, news, pass} = req.body;
+       /*  const {id, title, news, pass} = req.body;
         
         connection.query('INSERT INTO usuario SET?',{
             id_usuario: id,
@@ -55,7 +58,7 @@ module.exports = app => {
             contrasenia: pass
         } , (err, result) =>{
             res.redirect('/');
-        });
+        }); */
     });
 
     app.post('/verificar', (req, res) => {
@@ -69,6 +72,23 @@ module.exports = app => {
         } , (err, result) =>{
             res.redirect('/seleccionado');
         }); */
-        res.redirect('/seleccionado');
+        res.redirect('seleccionado');
     });
+
+    app.get('/header.css', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/header.css'))
+    })
+    app.get('/footer.css', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/footer.css'))
+    })
+    app.get('/index.css', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/index.css'))
+    })
+    app.get('/verificar.css', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/verificar.css'))
+    })
+    app.get('/index.js', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/index.js'))
+    })
+    /* app.use(express.static('public')) */
 } 

@@ -13,23 +13,6 @@ h1{
     margin-bottom: 50px;
 }
 
-
-footer{
-    height: 50px;
-    background: #000;
-    color: blanchedalmond;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
-    position: relative;
-    bottom: 0%;
-    
-}
-footer div{
-    display: inline;
-    letter-spacing: 1.5px;
-}
 p{
     width: 70%;
     margin: auto;
@@ -66,16 +49,16 @@ p{
     border-radius: 20px;
     
 }
-/* #btn-verificar:hover{
+#btn-verificar:hover{
     background-color: rgb(255, 40, 2);
-} */
+}
  #form-verificar h2{
   text-align: center;
   font-weight: 500px;
   font-size: 27px;
   margin-top: 33px;
 }
-/*#checkbox{
+/* #checkbox{
   width: 25px;
   height: 25px;
   position: relative;

@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Vacunacion</title>
+    
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css"> -->
+    <%- include ('partials/_header') %>
+    <link rel="stylesheet" href="verificar.css">
+    
+    
+</head>
+<body>
+    <header class="menu">
+        <section id = "cabecera">
+            <a id = "logo" href="/">AmezagaCode</a>
+            <nav class = "navbar-menu">
+                <ul id="navitem-elemento">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a id = "inicio" href="../verificar">Verificar</a></li>
+                    <li><a href="#">Acerca de nosotros</a></li>
+                </ul>
+            </nav>
+            <ul class="link-login-acceder">
+                <li><a href="../login"><i class="fas fa-sign-in-alt"></i>Acceder</a></li>
+            </ul>
+            <div class="lines">
+                <i class="fas fa-bars"></i>
+            </div>
+        </section>        
+        
+    </header>
+    <form id="form-verificar" action="/verificar" method="post">
+        <div><h2>Verificacion del beneficio</h2></div>
+        
+        <div>
+            <label for="dni">Ingrese su DNI:</label>
+            <input id="dni" type="text" maxlength="8" name="dni">
+            <!-- <i class="fas fa-address-card"></i> -->
+        </div>
+        
+        
+        <div>
+            <label for="nombre">Ingrese su nombre:</label>  
+            <input id="nombre" type="text" name="nombre">
+            <!-- <i class="fas fa-address-card"></i> -->
+        </div>
+        
+        <div>
+            <input id="checkbox" type="checkbox" >   
+            <label>Acepto las <a href="#">politicas de privacidad</a> </label>
+        </div>
+        <input class="boton" id="btn-verificar" type="submit" value="Verificar">
+        
+    </form>
+    
+    <footer><div>Copyright 2020 AmezagaCode | Todos los derechos reservados</div></footer>
+    
+    <script src="https://kit.fontawesome.com/d4de05ee0f.js" crossorigin="anonymous"></script>
+</body>
+</html>
