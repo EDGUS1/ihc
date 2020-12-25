@@ -6,13 +6,25 @@ module.exports = app => {
 
     app.get('/',(req, res) => {
         
-        connection.query('SELECT * FROM hospital', (err, result) => {
+        connection.query('SELECT * FROM HOSPITAL', (err, result) => {
             /* console.log('Datos ', result); */
             res.render('home/home',{
-                news: result
+                resultado: result
             });
         });
     });
+
+    app.get('/verificar',(req, res) => {
+        
+        connection.query('SELECT * FROM PACIENTE', (err, result) => {
+            /* console.log('Datos ', result); */
+            res.render('verificar/verificar',{
+                resultado: result
+            });
+        });
+    });
+
+
     app.post('/home', (req, res) => {
         const {id, title, news, pass} = req.body;
         

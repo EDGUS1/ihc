@@ -531,60 +531,20 @@ footer div{
                 <tr>
                   <th class="th-sm">Hospital</th>
                   <th class="th-sm">Direccion</th>
-                  <!-- <th class="th-sm">Telefono</th>
-                  <th class="th-sm">Pagina web</th> -->
-                  
+                  <th class="th-sm">Telefono</th>
+                  <!-- <th class="th-sm">Mapa</th> -->
                 </tr>
             </thead>
             <tbody>
+
+              <% for (let i = 0; i < resultado.length; i++){ %>
                 <tr>
-                    <td>1</td>
-                    <td>A</td>
+                    <td><%= resultado[i].nombre_hospital %></td>
+                    <td><%= resultado[i].direccion_hospital %></td>
+                    <td><%= resultado[i].telefono_paciente %></td>
+                    <!-- <td><iframe src= <%= resultado[i].mapa %> width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></td> -->
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>B</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>D</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>A</td>
-                </tr>
+              <% } %>
             </tbody>
         </table>
     </div>

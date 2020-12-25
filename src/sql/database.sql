@@ -30,10 +30,11 @@ CREATE TABLE UBICACION
 CREATE TABLE HOSPITAL
 (
 	id_hospital          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nombre_hospital      VARCHAR(150) NULL,
-	direccion_hospital   VARCHAR(150) NULL,
+	nombre_hospital      VARCHAR(100) NULL,
+	direccion_hospital   VARCHAR(100) NULL,
 	telefono_paciente    VARCHAR(20) NULL,
 	id_ubicacion         INTEGER NULL,
+	mapa                 VARCHAR(500) NULL,
 	FOREIGN KEY (id_ubicacion) REFERENCES UBICACION (id_ubicacion)
 );
 
