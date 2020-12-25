@@ -72,5 +72,5 @@ CREATE TABLE PACIENTE
 	FOREIGN KEY (id_subcategoria) REFERENCES SUBCATEGORIA (id_subcategoria)
 );
 
-INSERT INTO SUPERADMIN(nombre_superadmin,password) VALUES ('eduardo.navarro2', 'eduardo');
+INSERT INTO SUPERADMIN(nombre_superadmin, password) VALUES ('eduardo.navarro2', 'eduardo');
 
