@@ -1,6 +1,6 @@
 const dbConnection = require('../../config/dbConnection');
 const path = require('path');
-const express = require('express');
+/* const express = require('express'); */
 
 
 //npm run dev
@@ -49,8 +49,8 @@ module.exports = app => {
         const {dni, nombre} = req.body;
 
         
-        connection.query('SELECT * FROM PACIENTE', (err, result) => {
-            /* console.log('Datos ', result); */
+        /* connection.query('SELECT * FROM PACIENTE', (err, result) => {
+            
             if(dni == '1' && nombre == 'persona'){
 
                 res.redirect('seleccionado');
@@ -58,7 +58,14 @@ module.exports = app => {
 
                 res.redirect('noseleccionado');
             }
-        }); 
+        });  */
+        if(dni == '1' && nombre == 'persona'){
+
+            res.redirect('seleccionado');
+        }else{
+
+            res.redirect('noseleccionado');
+        }
     });
 
     app.post('/login', (req, res) => {
