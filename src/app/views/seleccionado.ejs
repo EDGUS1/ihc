@@ -1,5 +1,5 @@
 
-    <%- include ('partials/_header') %>
+<%- include ('partials/_header') %>
 
     <link rel="stylesheet" href="seleccion.css">
 
@@ -40,7 +40,7 @@
                     Nombre del Hospital:
                 </div>
                 <div class="col">
-                    NomPlaceholder
+                    <%= resultado[0].nombre_hospital %>
                 </div>
             </div>
             <div class="row">
@@ -48,7 +48,7 @@
                     Direccion:
                 </div>
                 <div class="col">
-                    DirPlaceholder
+                    <%= resultado[0].direccion_hospital %>
                 </div>
             </div>
             <div class="row">
@@ -56,20 +56,25 @@
                     Telefono:
                 </div>
                 <div class="col">
-                    TelPlaceholder
+                    <%= resultado[0].telefono_paciente %>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-sm">
                     Pagina Web:
                 </div>
                 <div class="col">
                     WebPlaceholder
                 </div>
-            </div>
-        </div>			
+            </div> -->
+        </div>
+        <div class="mapa-hospital">
+            <iframe src= <%= resultado[0].mapa %> width="600" height="450" frameborder="0" style="border:0;"allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></td>
+        </div>
     </div>
+    
     <footer id="footer"><div>Copyright 2020 AmezagaCode | Todos los derechos reservados</div></footer>
+    
     <!-- partial -->
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script><script  src="./login.js"></script>

@@ -1,5 +1,6 @@
 const dbConnection = require('../../config/dbConnection');
 const path = require('path');
+const express = require('express');
 
 
 //npm run dev
@@ -37,13 +38,13 @@ module.exports = app => {
 
     app.get('/seleccionado',(req, res) => {
         
-        /* connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
+        connection.query('SELECT * FROM HOSPITAL', (err, result) => {
             console.log('Datos ', result);
             res.render('seleccionado',{
                 resultado: result
             });
-        });  */
-        res.render('seleccionado');
+        }); 
+        /* res.render('seleccionado'); */
     });
     app.get('/noseleccionado',(req, res) => {
         
@@ -130,5 +131,9 @@ module.exports = app => {
     app.get('/index.js', (req, res) => {
         res.sendFile(path.join(__dirname, '../public/index.js'))
     })
+    app.get('/favicon.ico', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/favicon.ico'))
+    })
+    /* app.use(express.favicon(path.join(__dirname ,'../public/favicon.ico'))); */
     /* app.use(express.static('public')) */
 } 
