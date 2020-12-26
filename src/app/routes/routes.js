@@ -128,6 +128,10 @@ module.exports = app => {
     app.get('/favicon.ico', (req, res) => {
         res.sendFile(path.join(__dirname, '../public/favicon.ico'))
     })
+    app.use(function(req, res, next) {
+        res.status(404).render('404');
+    });
+    
     /* app.use(express.favicon(path.join(__dirname ,'../public/favicon.ico'))); */
     /* app.use(express.static('public')) */
 } 
