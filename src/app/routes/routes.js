@@ -19,41 +19,23 @@ module.exports = app => {
     });
 
     app.get('/verificar',(req, res) => {
-        
-        connection.query('SELECT * FROM PACIENTE', (err, result) => {
-            /* console.log('Datos ', result); */
-            res.render('verificar',{
-                resultado: result
-            });
-        });
+        res.render('verificar');
     });
 
     app.get('/login',(req, res) => {
-        
-        connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
-            /* console.log('Datos ', result); */
-            res.render('login');
-        });
+        res.render('login');
     });
 
     app.get('/seleccionado',(req, res) => {
-        
+        //falta recibir la informacion de la persona que consulta
         connection.query('SELECT * FROM HOSPITAL', (err, result) => {
-            console.log('Datos ', result);
+            /* console.log('Datos ', result); */
             res.render('seleccionado',{
                 resultado: result
             });
         }); 
-        /* res.render('seleccionado'); */
     });
     app.get('/noseleccionado',(req, res) => {
-        
-        /* connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
-            console.log('Datos ', result);
-            res.render('seleccionado',{
-                resultado: result
-            });
-        });  */
         res.render('noseleccionado');
     });
     app.get('/dashboard',(req, res) => {
@@ -64,17 +46,19 @@ module.exports = app => {
     });
 
     app.post('/verificar', (req, res) => {
-        /* const {id, title, news, pass} = req.body; */
+        const {dni, nombre} = req.body;
+
         
-        /* connection.query('INSERT INTO usuario SET?',{
-            id_usuario: id,
-            nombre_completo_usuario: title,
-            correo: news,
-            contrasenia: pass
-        } , (err, result) =>{
-            res.redirect('/seleccionado');
-        }); */
-        res.redirect('seleccionado');
+        connection.query('SELECT * FROM PACIENTE', (err, result) => {
+            /* console.log('Datos ', result); */
+            if(dni == '1' && nombre == 'persona'){
+
+                res.redirect('seleccionado');
+            }else{
+
+                res.redirect('noseleccionado');
+            }
+        }); 
     });
 
     app.post('/login', (req, res) => {
@@ -127,6 +111,9 @@ module.exports = app => {
     })
     app.get('/categoria.css', (req, res) => {
         res.sendFile(path.join(__dirname, '../public/categoria.css'))
+    })
+    app.get('/noselect.css', (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/noselect.css'))
     })
     app.get('/index.js', (req, res) => {
         res.sendFile(path.join(__dirname, '../public/index.js'))

@@ -4,7 +4,7 @@ body {
   /* padding-top: 250px; */
 	/*The below background is just to add some color, you can set this to anything*/
   background: url(http://www.magic4walls.com/wp-content/uploads/2014/01/texture-blue-fonchik-simple-dark-colors-glow-background.jpg) no-repeat;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,7 +18,7 @@ body {
     border-width: 2%;
     padding: 2%;
     padding-top: 3%;
-    margin: 100px auto;
+    /* margin: 100px auto; */
     padding-bottom: 3%;
     background: rgb(241, 241, 241);
 }
@@ -35,21 +35,12 @@ body {
     font-size: large;
 }
 
-.check{
-    color:green;
+.warning{
+    color:rgb(226, 211, 2);
     display: inline-block;
     transform: scale(1.2,1.2);
 }
-
-.check i{
+.warning i{
     font-size: 20px;
-}
-
-.mapa-hospital{
-    margin: auto;
-    margin-top: 20px;
-    border: 1px solid black;
-}
-.mapa-hospital iframe{
-    margin-left: 20px;
+    padding: 5px;
 }

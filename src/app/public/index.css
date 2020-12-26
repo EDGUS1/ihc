@@ -17,7 +17,7 @@
     margin-bottom: 50px;
   }
   #map{
-      width: 500px;
+      width: 700px;
       height: 500px;
       margin: 20px auto;
   }
@@ -175,7 +175,6 @@
     right: -70px;
   }
   
-  /* Demo Stuff */
   #parrafo {
     clear: both;
     font-family: 'Work Sans', Helvetica, sans-serif;
@@ -194,40 +193,7 @@
     text-transform: uppercase;
     margin-bottom: 20px;
   }
-  /* * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  } */
-  /* a.more-link {
-    background-color: rgba(255, 255, 255, 0.35);
-    display: inline-block;
-    padding: 40px 18px;
-    color: #fff;
-    text-decoration: none;
-    font: 500 15px 'Work Sans', Helvetica, sans-serif;
-    line-height: 1.5;
-    text-align: center;
-    border: none !important;
-    position: relative;
-    border-radius: 30px;
-    text-transform: uppercase;
-    -webkit-transition: .1s all ease-in-out;
-    -moz-transition: .1s all ease-in-out;
-    -o-transition: .1s all ease-in-out;
-    transition: .1s all ease-in-out;
-  }
-  a.more-link:hover {
-    background-color: rgba(255, 255, 255, 0.50);
-  } */
-  /* body {
-    background-color: #eff2f7;
-    margin-bottom: 50px;
-  } */
-  /* html, button, input, select, textarea {
-    font-family: 'Source Sans Pro', Helvetica, sans-serif;
-    color: #90b0bf;
-  } */
+
   .more-link{
     background: rgba(255, 255, 255, 0.35);
     height: 30px;
@@ -256,19 +222,7 @@
   .link-container {
     text-align: center;
   }
-  /* .link-container a.more-link {
-    font-family: 'Source Sans Pro', Helvetica, sans-serif;
-    background-color: #90b0bf;
-    color: #fff;
-    display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    line-height: 1.5;
-    text-decoration: none;
-    text-transform: none;
-    font-weight: 400;
-    letter-spacing: 1px;
-  } */
+  
   .mapboxgl-ctrl-attrib-inner a{
     display: none;
   }
