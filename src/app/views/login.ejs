@@ -1,52 +1,54 @@
 <%- include ('partials/_header') %>
-
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-<!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+	<!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poiret+One'> -->
 
-<link rel="stylesheet" href="login.css">
+	<link rel="stylesheet" href="login.css">
+	</head>
 
-</head>
-<body>
-   
-
-	<div></div>
-	<div class="container login-form">
-		<h2 class="login-title">Bienvenido</h2>
-		<h3 class="login-title">Ingreso a los datos de usuario</h3>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<form action="/login" method="post">
-					<div class="input-group login-userinput">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-						<input id="txtUser" type="text" class="form-control" name="username" placeholder="Ingrese Usuario">
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-						<input  id="txtPassword" type="password" class="form-control" name="password" placeholder="Ingrese 	Contraseña">
-						<span id="showPassword" class="input-group-btn">
-	            <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
-	          </span>  
-					</div>
-                    <button class="btn btn-primary btn-block login-button" type="submit"><i class="fa fa-sign-in"></i> Entrar</button>
-                    <!-- Este no debe de ser submit debido a que no envia nada -->
-                    
-					<button class="btn btn-primary btn-block login-button"><i class="fa fa-arrow-left"></i> 	<a href="/">Volver</a></button>
-					<div class="checkbox login-options">
-						<label><input type="checkbox"/> Recordar contraseña</label>
-						<a href="#" class="login-forgot">Olvide mi contraseña?</a>
-					</div>		
-				</form>			
+	<body>
+		<div></div>
+		<div class="container login-form">
+			<h2 class="login-title">Bienvenido</h2>
+			<h3 class="login-title">Ingreso a los datos de usuario</h3>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form action="/login" method="post">
+						<div class="input-group login-userinput">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+							<input id="txtUser" type="text" class="form-control" name="username"
+								placeholder="Ingrese Usuario">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+							<input id="txtPassword" type="password" class="form-control" name="password"
+								placeholder="Ingrese 	Contraseña">
+							<span id="showPassword" class="input-group-btn">
+								<button class="btn btn-default reveal" type="button"><i
+										class="glyphicon glyphicon-eye-open"></i></button>
+							</span>
+						</div>
+						<button class="btn btn-primary btn-block login-button" type="submit"><i
+								class="fa fa-sign-in"></i>
+							Entrar</button>
+						<!-- Este no debe de ser submit debido a que no envia nada -->
+						<button class="btn btn-primary btn-block login-button"><i class="fa fa-arrow-left"></i> <a
+								href="/">Volver</a></button>
+						<div class="checkbox login-options">
+							<label><input type="checkbox" /> Recordar contraseña</label>
+							<a href="#" class="login-forgot">Olvide mi contraseña?</a>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
-    </div>
-    
-    <footer id="footer"><div>Copyright 2020 AmezagaCode | Todos los derechos reservados</div></footer>
-    
-	<!-- partial -->
-	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
-    <!-- <script  src="./login.js"></script> -->
-
+		<footer id="footer">
+			<div>Copyright 2020 AmezagaCode | Todos los derechos reservados</div>
+		</footer>
+		<!-- partial -->
+		<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+		<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+		<!-- <script  src="./login.js"></script> -->
 	</body>
-</html>
+
+	</html>
