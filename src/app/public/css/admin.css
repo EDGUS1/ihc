@@ -1,74 +1,86 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+    background-color: #dddddd;
 }
-.tablas{
-  padding: 30px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  
+
+.tablas {
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
-.tablas section{
+
+.tablas section {
     padding: 10px;
 }
-i{
+
+i {
     font-size: 50px;
 }
-i:hover{
+
+i:hover {
     color: red;
     cursor: pointer;
 }
-.flechas{
+
+.flechas {
     display: flex;
     flex-direction: column;
 }
-tbody tr:hover{
+
+tbody tr:hover {
     background: black;
     color: white;
     cursor: pointer;
 }
-button{
+
+button {
     width: 30%;
     margin: auto;
 }
-.edad{
+
+.edad {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px;
 }
-input{
+
+input {
     margin: 20px;
 }
-h1{
+
+h1 {
     margin: 30px 100px;
 }
