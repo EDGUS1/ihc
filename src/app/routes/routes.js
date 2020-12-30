@@ -1,17 +1,23 @@
-const dbConnection = require('../../config/dbConnection');
+/* const dbConnection = require('../../config/dbConnection'); */
 const path = require('path');
 const express = require('express');
+const router = express.Router();
+const pool = require('../../config/database');
 
+router.get('/', async(req, res) => {
+    /* const links = await pool.query('SELECT * FROM HOSPITAL'); */
+    res.render('home')
+});
 
+module.exports = router;
 //npm run dev
-module.exports = app => {
+/* module.exports = app => {
 
     const connection = dbConnection();
 
     app.get('/', (req, res) => {
 
         connection.query('SELECT * FROM HOSPITAL', (err, result) => {
-            /* console.log('Datos ', result); */
             res.render('home', {
                 resultado: result
             });
@@ -27,9 +33,9 @@ module.exports = app => {
     });
 
     app.get('/seleccionado', (req, res) => {
-        //falta recibir la informacion de la persona que consulta
+
         connection.query('SELECT * FROM HOSPITAL', (err, result) => {
-            /* console.log('Datos ', result); */
+
             res.render('seleccionado', {
                 resultado: result
             });
@@ -48,17 +54,6 @@ module.exports = app => {
     app.post('/verificar', (req, res) => {
         const { dni, nombre } = req.body;
 
-
-        /* connection.query('SELECT * FROM PACIENTE', (err, result) => {
-            
-            if(dni == '1' && nombre == 'persona'){
-
-                res.redirect('seleccionado');
-            }else{
-
-                res.redirect('noseleccionado');
-            }
-        });  */
         if (dni == '1' && nombre == 'persona') {
 
             res.redirect('seleccionado');
@@ -70,10 +65,8 @@ module.exports = app => {
 
     app.post('/login', (req, res) => {
         const { username, password } = req.body;
-        /* console.log(`user -> ${username}    pass -> ${password}`) */
-        //no tengo q hacer un insert sino una consulta para comparar credenciales
+
         connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
-            /* console.log(result) */
             for (let i = 0; i < result.length; i++) {
 
                 if (username == result[i].nombre_admin && password == result[i].password) {
@@ -84,15 +77,9 @@ module.exports = app => {
                     } else if (result[i].permiso == 'superadmin') {
                         res.redirect('dashboard');
                     }
-                    /* else{
-                                            res.redirect('/');
-                                        } */
-                }
             }
 
         });
-
-        /* let type = 'superadmin'; */
 
     });
 
@@ -102,6 +89,4 @@ module.exports = app => {
         res.status(404).render('404');
     });
 
-    /* app.use(express.favicon(path.join(__dirname ,'../public/favicon.ico'))); */
-    /* app.use(express.static('public')) */
-}
+} */
