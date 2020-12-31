@@ -5,11 +5,10 @@ const router = express.Router();
 const pool = require('../../config/database');
 
 router.get('/', async(req, res) => {
-    const links = await pool.query('SELECT * FROM HOSPITAL');
-    res.render('home', { resultado: links })
+    const respuesta = await pool.query('SELECT * FROM HOSPITAL');
+    res.render('home', { resultado: respuesta })
 });
 
-module.exports = router;
 
 router.get('/verificar', (req, res) => {
     res.render('verificar');
@@ -20,83 +19,54 @@ router.get('/login', (req, res) => {
     res.render('login');
 })
 
-router.get('', (req, res) => {
-
+router.get('/seleccionado', async(req, res) => {
+    const respuesta = await pool.query('SELECT * FROM HOSPITAL');
+    res.render('seleccionado', { resultado: respuesta })
 })
 
-router.get('', (req, res) => {
-
+router.get('/noseleccionado', (req, res) => {
+    res.render('noseleccionado');
 })
 
-router.get('', (req, res) => {
-
+router.get('/dashboard', (req, res) => {
+    res.render('dashboard');
 })
-router.get('', (req, res) => {
-
+router.get('/admin', (req, res) => {
+    res.render('admin');
 })
 
-router.get('', (req, res) => {
+router.post('/verificar', (req, res) => {
 
-    })
-    //npm run dev
-    /* module.exports = app => {
+    const { dni, nombre } = req.body;
 
-        const connection = dbConnection();
-        app.get('/seleccionado', (req, res) => {
+    if (dni == '1' && nombre == 'persona') {
 
-            connection.query('SELECT * FROM HOSPITAL', (err, result) => {
+        res.redirect('seleccionado');
+    } else {
 
-                res.render('seleccionado', {
-                    resultado: result
-                });
-            });
-        });
-        app.get('/noseleccionado', (req, res) => {
-            res.render('noseleccionado');
-        });
-        app.get('/dashboard', (req, res) => {
-            res.render('dashboard');
-        });
-        app.get('/admin', (req, res) => {
-            res.render('admin');
-        });
+        res.redirect('noseleccionado');
+    }
+})
 
-        app.post('/verificar', (req, res) => {
-            const { dni, nombre } = req.body;
+router.post('/login', (req, res) => {
+    //falta arregalarlo a router
+    const { username, password } = req.body;
 
-            if (dni == '1' && nombre == 'persona') {
+    connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
+        for (let i = 0; i < result.length; i++) {
 
-                res.redirect('seleccionado');
-            } else {
+            if (username == result[i].nombre_admin && password == result[i].password) {
 
-                res.redirect('noseleccionado');
-            }
-        });
-
-        app.post('/login', (req, res) => {
-            const { username, password } = req.body;
-
-            connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
-                for (let i = 0; i < result.length; i++) {
-
-                    if (username == result[i].nombre_admin && password == result[i].password) {
-
-                        if (result[i].permiso == 'comun') {
-                            res.redirect('admin');
-                            break;
-                        } else if (result[i].permiso == 'superadmin') {
-                            res.redirect('dashboard');
-                        }
+                if (result[i].permiso == 'comun') {
+                    res.redirect('admin');
+                    break;
+                } else if (result[i].permiso == 'superadmin') {
+                    res.redirect('dashboard');
                 }
+            }
 
-            });
+        }
+    })
+});
 
-        });
-
-        app.use(express.static(path.join(__dirname, '../public')));
-
-        app.use(function(req, res, next) {
-            res.status(404).render('404');
-        });
-
-    } */
+module.exports = router;
