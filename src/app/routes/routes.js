@@ -1,14 +1,25 @@
 /* const dbConnection = require('../../config/dbConnection'); */
 const path = require('path');
 const express = require('express');
+const passport = require('passport');
 const router = express.Router();
 const pool = require('../../config/database');
+const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 router.get('/', async(req, res) => {
     const respuesta = await pool.query('SELECT * FROM HOSPITAL');
     res.render('home', { resultado: respuesta })
 });
 
+router.get('/register', (req, res) => {
+    res.render('register');
+});
+
+router.post('/register', passport.authenticate('local.signup', {
+    successRedirect: '/register',
+    failureRedirect: '/',
+    failureFash: false
+}));
 
 router.get('/verificar', (req, res) => {
     res.render('verificar');
