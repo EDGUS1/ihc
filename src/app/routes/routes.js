@@ -18,7 +18,8 @@ router.get('/register', (req, res) => {
 router.post('/register', passport.authenticate('local.signup', {
     successRedirect: '/register',
     failureRedirect: '/',
-    failureFash: false
+    failureFash: false,
+    session: false
 }));
 
 router.get('/verificar', (req, res) => {
@@ -59,25 +60,23 @@ router.post('/verificar', (req, res) => {
     }
 })
 
-router.post('/login', (req, res) => {
+router.post('/login', (req, res, next) => {
     //falta arregalarlo a router
     const { username, password } = req.body;
 
-    connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
-        for (let i = 0; i < result.length; i++) {
+    passport.authenticate('local.signin', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/',
+        failureFlash: false,
+        session: false
+    })(req, res, next);
 
-            if (username == result[i].nombre_admin && password == result[i].password) {
+});
 
-                if (result[i].permiso == 'comun') {
-                    res.redirect('admin');
-                    break;
-                } else if (result[i].permiso == 'superadmin') {
-                    res.redirect('dashboard');
-                }
-            }
 
-        }
-    })
+router.get('/logout', (req, res) => {
+    req.logOut();
+    res.redirect('/login');
 });
 
 module.exports = router;
