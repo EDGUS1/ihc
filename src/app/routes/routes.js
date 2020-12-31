@@ -1,107 +1,82 @@
-const dbConnection = require('../../config/dbConnection');
+/* const dbConnection = require('../../config/dbConnection'); */
 const path = require('path');
 const express = require('express');
+const passport = require('passport');
+const router = express.Router();
+const pool = require('../../config/database');
+const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
+
+router.get('/', async(req, res) => {
+    const respuesta = await pool.query('SELECT * FROM HOSPITAL');
+    res.render('home', { resultado: respuesta })
+});
+
+router.get('/register', (req, res) => {
+    res.render('register');
+});
+
+router.post('/register', passport.authenticate('local.signup', {
+    successRedirect: '/register',
+    failureRedirect: '/',
+    failureFash: false,
+    session: false
+}));
+
+router.get('/verificar', (req, res) => {
+    res.render('verificar');
+})
 
 
-//npm run dev
-module.exports = app => {
+router.get('/login', (req, res) => {
+    res.render('login');
+})
 
-    const connection = dbConnection();
+router.get('/seleccionado', async(req, res) => {
+    const respuesta = await pool.query('SELECT * FROM HOSPITAL');
+    res.render('seleccionado', { resultado: respuesta })
+})
 
-    app.get('/', (req, res) => {
+router.get('/noseleccionado', (req, res) => {
+    res.render('noseleccionado');
+})
 
-        connection.query('SELECT * FROM HOSPITAL', (err, result) => {
-            /* console.log('Datos ', result); */
-            res.render('home', {
-                resultado: result
-            });
-        });
-    });
+router.get('/dashboard', (req, res) => {
+    res.render('dashboard');
+})
+router.get('/admin', (req, res) => {
+    res.render('admin');
+})
 
-    app.get('/verificar', (req, res) => {
-        res.render('verificar');
-    });
+router.post('/verificar', (req, res) => {
 
-    app.get('/login', (req, res) => {
-        res.render('login');
-    });
+    const { dni, nombre } = req.body;
 
-    app.get('/seleccionado', (req, res) => {
-        //falta recibir la informacion de la persona que consulta
-        connection.query('SELECT * FROM HOSPITAL', (err, result) => {
-            /* console.log('Datos ', result); */
-            res.render('seleccionado', {
-                resultado: result
-            });
-        });
-    });
-    app.get('/noseleccionado', (req, res) => {
-        res.render('noseleccionado');
-    });
-    app.get('/dashboard', (req, res) => {
-        res.render('dashboard');
-    });
-    app.get('/admin', (req, res) => {
-        res.render('admin');
-    });
+    if (dni == '1' && nombre == 'persona') {
 
-    app.post('/verificar', (req, res) => {
-        const { dni, nombre } = req.body;
+        res.redirect('seleccionado');
+    } else {
+
+        res.redirect('noseleccionado');
+    }
+})
+
+router.post('/login', (req, res, next) => {
+    //falta arregalarlo a router
+    const { username, password } = req.body;
+
+    passport.authenticate('local.signin', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/',
+        failureFlash: false,
+        session: false
+    })(req, res, next);
+
+});
 
 
-        /* connection.query('SELECT * FROM PACIENTE', (err, result) => {
-            
-            if(dni == '1' && nombre == 'persona'){
+router.get('/logout', (req, res) => {
+    req.logOut();
+    res.redirect('/login');
+});
 
-                res.redirect('seleccionado');
-            }else{
-
-                res.redirect('noseleccionado');
-            }
-        });  */
-        if (dni == '1' && nombre == 'persona') {
-
-            res.redirect('seleccionado');
-        } else {
-
-            res.redirect('noseleccionado');
-        }
-    });
-
-    app.post('/login', (req, res) => {
-        const { username, password } = req.body;
-        /* console.log(`user -> ${username}    pass -> ${password}`) */
-        //no tengo q hacer un insert sino una consulta para comparar credenciales
-        connection.query('SELECT * FROM ADMINISTRADOR', (err, result) => {
-            /* console.log(result) */
-            for (let i = 0; i < result.length; i++) {
-
-                if (username == result[i].nombre_admin && password == result[i].password) {
-
-                    if (result[i].permiso == 'comun') {
-                        res.redirect('admin');
-                        break;
-                    } else if (result[i].permiso == 'superadmin') {
-                        res.redirect('dashboard');
-                    }
-                    /* else{
-                                            res.redirect('/');
-                                        } */
-                }
-            }
-
-        });
-
-        /* let type = 'superadmin'; */
-
-    });
-
-    app.use(express.static(path.join(__dirname, '../public')));
-
-    app.use(function(req, res, next) {
-        res.status(404).render('404');
-    });
-
-    /* app.use(express.favicon(path.join(__dirname ,'../public/favicon.ico'))); */
-    /* app.use(express.static('public')) */
-}
+module.exports = router;
