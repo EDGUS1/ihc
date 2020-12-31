@@ -9,13 +9,13 @@ passport.use('local.signin', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async(req, username, password, done) => {
-    console.log(req.body);
+
     const rows = await pool.query('SELECT * FROM ADMINISTRADOR WHERE nombre_admin = ?', [username]);
-    console.log(rows);
+
     if (rows.length > 0) {
         const user = rows[0];
         const validPassword = await helpers.matchPassword(password, user.password);
-        console.log(validPassword);
+
         if (validPassword) {
             console.log('Welcome');
             done(null, user, req.flash('success', 'Welcome ' + user.username));
@@ -52,9 +52,6 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async(id, done) => {
-    console.log('deserializeUser');
-    /* console.log(id); */
     const rows = await pool.query('SELECT * FROM ADMINISTRADOR WHERE id_admin = ?', [id.id_admin]);
-    /* console.log(rows); */
     done(null, rows[0]);
 });
