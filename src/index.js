@@ -44,6 +44,10 @@ app.use(require('./app/routes/routes'))
 
 app.use(express.static(path.join(__dirname, 'app/public')));
 
+app.use(function(req, res, next) {
+    res.status(404).render('404');
+});
+
 app.listen(app.get('port'), () => {
     console.log('Server on port ', app.get('port'));
 });

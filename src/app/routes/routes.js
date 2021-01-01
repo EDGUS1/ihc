@@ -73,14 +73,9 @@ router.post('/login', (req, res, next) => {
 
 });
 
-
 router.get('/logout', (req, res) => {
     req.logOut();
     res.redirect('/login');
 });
 
-/* router.use(function(req, res, next) {
-    res.status(404).render('404');
-});
- */
 module.exports = router;
