@@ -1,18 +1,10 @@
 
-CREATE TABLE SUPERADMIN
-(
-	id_superadmin INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nombre_superadmin VARCHAR(20) NULL,
-	password VARCHAR(20) NULL
-);
-
-
-
 CREATE TABLE ADMINISTRADOR
 (
 	id_admin INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nombre_admin VARCHAR(20) NULL,
-	password VARCHAR(20) NULL
+	password VARCHAR(200) NULL,
+	permiso VARCHAR(20) NULL
 );
 
 
@@ -73,5 +65,4 @@ CREATE TABLE PACIENTE
 	FOREIGN KEY (id_subcategoria) REFERENCES SUBCATEGORIA (id_subcategoria)
 );
 
-INSERT INTO ADMINISTRADOR(nombre_admin, password, permiso) VALUES ('eduardo.navarro2', 'eduardo', 'superadmin');
 
